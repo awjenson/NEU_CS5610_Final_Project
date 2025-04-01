@@ -1,28 +1,755 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400&family=Markazi+Text:wght@500&display=swap');
 
 * {
-  font-family: "PT Sans", sans-serif;
+  box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+/* filepath: /Users/andrewjenson/OnlineCourses/meta-front-end-capstone/front-end-capstone-project/src/index.css */
+body {
+  margin: 0;
+  font-family: 'Karla', sans-serif; /* Set default font to Karla */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-table,
-td {
-  border: 1px solid rgb(0, 141, 184);
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Markazi Text', serif; /* Set headlines to Markazi Text */
+  margin: 0.5rem; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+h1 {
+  color: #f4ce14; /* Yellow heading */
+  font-size: 40pt; /* Set h1 size to 64pt */
+  font-weight: 500; /* Medium weight */
+}
+
+h3 {
+  font-size: 30pt; /* Set h3 size to 40pt */
+  font-weight: 400; /* Regular weight */
+}
+
+h5 {
+  font-size: 20pt; /* Set h3 size to 40pt */
+  font-weight: 400; /* Regular weight */
+}
+
+p {
+  font-family: 'Karla', sans-serif; /* Set paragraphs to Karla */
+  font-size: 12pt; /* Set paragraph size to 16pt */
+  font-weight: 400; /* Regular weight */
+  line-height: 1.5; /* Set line height to 1.5 */
+  max-width: 65ch; /* Max 65 characters per line */
+}
+
+/* Section titles */
+.section-title {
+  font-family: 'Markazi Text', serif;
+  font-size: 12pt;
+  font-weight: 800; /* Extra bold */
+}
+
+/* This week's specials section categories */
+.specials-category {
+  font-family: 'Markazi Text', serif;
+  font-size: 12pt;
+  font-weight: 800; /* Extra bold */
+}
+
+/* Card title */
+.card-title {
+  font-family: 'Karla', sans-serif;
+  font-size: 12pt;
+  font-weight: 700; /* Bold */
+}
+
+/* Global button styles */
+button {
+  background-color: #f4ce14; /* Bright yellow background */
+  color: #000; /* Black text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  text-align: center;
+  font-weight: 800; /* Extra bold */
+  width: 170px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  display: inline-block; /* Ensure it behaves like a button */
+}
+
+button:hover {
+  background-color: #d1b112; /* Slightly darker yellow on hover */
+}
+
+
+
+/* ------------ Grid Styles ------------ */
+
+/* Add this to the top of your CSS file where grid styles are defined */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12 equal columns */
+  width: 100%;
+  margin: 0 auto; /* Center the grid container */
+  gap: 1rem; /* Add spacing between grid items */
+}
+
+
+/* Styles for ALL grid items EXCEPT the hero */
+.grid-item-nav,
+.grid-item-main,
+.grid-item-footer {
+  grid-column: 3 / span 8; /* Center content in the grid */
+}
+
+/* Styles for the HERO */
+.grid-item-hero {
+  grid-column: 1 / -1; /* Span all 12 columns - FULL WIDTH */
+  width: 100vw; /* Full viewport width */
+  margin-left: calc(-50vw + 50%); /* Offset from center to align with left edge */
+  margin-right: calc(-50vw + 50%); /* Offset from center to align with right edge */
+  background-color: #495e57;
+}
+
+/* ------------ Nav.js ------------ */
+
+#nav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: sticky; /* Added: sticky position (not fixed position) */
+  top: 0;           /* Added: top of 0 */
+}
+
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-logo img {
+  max-width: 150px; /* Increase the max-width to a larger value */
+  width: auto; /* Ensure the width adjusts automatically */
+  height: auto; /* Ensure the height adjusts automatically */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-content: space-evenly; /* Spread links equally */
+  flex-grow: 1; /* Allow the links to grow */
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Set text color to dark gray */
+  font-size: 16px; /* Set font size */
+  font-weight: 400; /* Set font weight */
+}
+
+/* ------------ Hero Styles ------------ */
+#hero {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #495e57;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.hero-container {
+  grid-column: 3 / span 8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-left, .hero-right {
+  display: flex;;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.hero-left {
+  color: white;
+}
+
+.hero-left h1 {
+  color: #f4ce14;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  margin-bottom: 0.5rem; /* Add margin for spacing */
+}
+
+.hero-left h3 {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  margin-top: 0.25rem; /* Reduce margin to get closer to h1 */
+  margin-bottom: 0.5rem; /* Add margin for spacing */
+}
+
+.hero-left p {
+  max-width: 350px;
+}
+
+.hero-left button {
+  align-self: flex-start;
+}
+
+.hero-right {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: hidden; /* Important if you don't want content to overflow */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 250px; /* Or whatever width you want */
+}
+
+.hero-right img {
+  width: 100%; /* Or auto if you only set height */
+  height: auto; /* Or 100% if you only set width */
+  object-fit: contain; /* Key: Maintains aspect ratio, adds letterboxing if needed */
+  display: block;
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+
+/* ------------ Highlights.js ------------ */
+#highlights {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
   text-align: center;
 }
 
-thead {
-  background-color: rgb(47, 67, 255);
+.highlights-header {
+  display: flex; /* Enable flexbox */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space out items (text on the left, button on the right) */
+}
+
+.specials-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.special-item {
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px 10px 0 0; /* Top-left, top-right, bottom-right, bottom-left */
+}
+
+.special-item img {
+  width: 100%; /* Ensure the image takes the full width of the container */
+  height: 150px; /* Set a fixed height for all images */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  border-radius: 10px 10px 0 0; /* Top-left, top-right, bottom-right, bottom-left */
+}
+
+.special-item h3, .special-item p {
+  margin: 0.5rem 0; /* Add consistent spacing between elements */
+  padding: 0 1rem; /* Add padding to the left and right of text elements */
+}
+
+.special-item p:last-of-type {
+  color: #ee9a72; /* Correctly formatted color value */
+  margin-top: auto; /* Push the price to the bottom */
+}
+
+
+/* ------------ Testimonials.js ------------ */
+#testimonials {
+  background-color: #f0f0f0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.review-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.review-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* ------------ About.js ------------ */
+#about {
+
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.about-left, .about-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 45%; /* Take up 45% of the width */
+  min-width: 300px; /* Ensure a minimum width for wrapping */
+}
+
+
+.about-left {
+
+
+}
+
+.about-left h1 {
+  color: #495e57;
+
+}
+
+.about-left h3 {
+
+}
+
+.about-left p {
+  width: 80%;
+  text-align: justify;
+}
+
+.about-right {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: hidden; /* Important if you don't want content to overflow */
+  align-items: center;
+
+}
+
+.about-image1,
+.about-image2 {
+  width: 200px; /* Set the width */
+  height: 200px; /* Height will adjust to maintain aspect ratio */
+  object-fit: cover; /* Prevents cropping, adds letterboxing if necessary */
+  /*border-radius: 8px; /* Optional: Add rounded corners */
+
+}
+
+.about-image1 {
+  top: 20px;
+  left: 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.6); /* Add a bottom shadow */
+}
+
+.about-image2 {
+  bottom: 20px;
+  right: 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 8px 0 8px rgba(0, 0, 0, 0.6); /* Add a right shadow */
+}
+
+
+
+
+/* ------------ Footer.js ------------ */
+footer {
+  background-color: #333;
   color: #fff;
+  padding: 2rem;
+  text-align: center;
 }
 
-th {
-  padding: 5px;
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.footer-logo img {
+  max-width: 100px;
+}
+
+.footer-nav ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li,
+.footer-social ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a,
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-contact p {
+  margin: 0.5rem 0;
+}
+
+/* ------------ ReservationsPage.jsx ------------ */
+.reservations-page {
+  padding: 2rem;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: #495e57;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+/* ------------ ReservationsForm.jsx ------------ */
+.reservations-form {
+  display: grid; /* Use grid layout */
+  max-width: 200px; /* Limit the form's width */
+  gap: 20px; /* Add spacing between form elements */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Add spacing between label and input */
+}
+
+.required-field-notice {
+  color: red;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 0.5rem;
+}
+
+select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.no-slots-message {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 
+
+
+/* ------------ ReservationsList.jsx ------------ */
+.reservations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.reservation-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card-header {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.card-actions {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 1rem;
+}
+
+.update-button, .delete-button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.update-button {
+  background-color: #f4ce14;
+  color: #333333;
+}
+
+.update-button:hover {
+  background-color: #e5c00f;
+}
+
+.delete-button {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #ff5252;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* ------------ LoginPage.jsx ------------ */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.auth-form .error-message {
+  margin-top: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.auth-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+  color: #495E57;
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  color: #666;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-form input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-form .submit-button {
+  background-color: #F4CE14;
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  min-width: 120px; /* Ensures consistent button width */
+}
+
+.auth-form .submit-button:hover {
+  background-color: #E1BD13;
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.register-link {
+  color: #495E57;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+
+/* ------------ MenuPage.jsx ------------ */
+
+.menu-page {
+  padding: 2rem;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.menu-item {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.menu-item h3 {
+  color: #495E57;
+  margin-bottom: 0.5rem;
+}
+
+.menu-item .price {
+  color: #333;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.menu-item .category {
+  color: #666;
+  font-style: italic;
+}
+
+/* ------------ OrderOnlinePage.jsx ------------ */
+.order-online-page {
+  min-height: 30vh;  /* This will make it take up 50% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+  padding: 2rem;
+}

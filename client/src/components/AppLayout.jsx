@@ -1,44 +1,33 @@
 import { useAuthUser } from "../security/AuthContext";
 import { useNavigate, Outlet, Link } from "react-router-dom";
-
-import "../style/appLayout.css";
+import Nav from "./Nav";
+import Footer from "./Footer";
 
 export default function AppLayout() {
   const { user, logout } = useAuthUser();
   const navigate = useNavigate();
 
   return (
-    <div className="app">
-      <div className="title">
-        <h1>NEU TODOs App</h1>
+    <div className="grid-container">
+
+      {/* Navigation */}
+      <div className="grid-item-nav">
+          <Nav />
       </div>
-      <div className="header">
-        <nav className="menu">
-          <ul className="menu-list">
-            <li>
-              <Link to="/app">Profile</Link>
-            </li>
-            <li>
-              <Link to="/app/todos">TODOs</Link>
-            </li>
-            <li>
-              <button
-                className="exit-button"
-                onClick={async () => {
-                  await logout();
-                  navigate("/");
-                }}
-              >
-                LogOut
-              </button>
-            </li>
-          </ul>
-        </nav>
-        <div>Welcome 👋 {user?.name} </div>
+
+      {/* Main Content */}
+      <main className="grid-item-main">
+
+          {/* The <Outlet> renders the current route selected */}
+          <Outlet />
+
+      </main>
+
+      {/* Footer */}
+      <div className="grid-item-footer">
+          <Footer />
       </div>
-      <div className="content">
-        <Outlet />
-      </div>
+
     </div>
   );
 }
