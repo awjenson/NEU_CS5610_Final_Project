@@ -10,7 +10,6 @@ export default function useMenuItems() {
     useEffect(() => {
       const fetchMenuItems = async () => {
         try {
-          console.log('Fetching from:', `${process.env.REACT_APP_API_URL}/menu-items`); // Debug log
           const response = await fetch(`${process.env.REACT_APP_API_URL}/menu-items`);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -18,7 +17,6 @@ export default function useMenuItems() {
           const data = await response.json();
           setMenuItems(data);
         } catch (err) {
-          console.error('Fetch error:', err); // Debug log
           setError(err.message);
         } finally {
           setLoading(false);

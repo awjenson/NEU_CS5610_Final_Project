@@ -95,8 +95,6 @@ async function main() {
     });
   }
 
-  console.log('Menu items seeded successfully!');
-
   // Create a test user
   await prisma.user.create({
     data: {
@@ -106,12 +104,10 @@ async function main() {
     }
   });
 
-  console.log('Test user created successfully!');
 }
- 
+
 main()
   .catch((e) => {
-    console.error(e);
     process.exit(1);
   })
   .finally(async () => {

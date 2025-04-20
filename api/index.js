@@ -40,7 +40,6 @@ function requireAuth(req, res, next) {
 
 // this is a public endpoint because it doesn't have the requireAuth middleware
 app.get("/ping", (req, res) => {
-  console.log("Ping endpoint hit! 🏓 Pong! 🏓");
   res.send("pong");
 });
 
@@ -67,28 +66,20 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  // TEST
-  console.log("Login attempt for username:", username); // Debug log
-
   const user = await prisma.user.findUnique({ where: { username } });
   if (!user) {
-    console.log("User not found"); // Debug log
     return res.status(401).json({ error: "Invalid credentials" });
   }
 
-  console.log("User found, comparing passwords"); // Debug log
   // password: 123456
   // user.password: $2b$10$naV1eAwirV13nyBYVS96W..52QzN8U/UQ7mmi/IEEVJDtCAdDmOl2
   const validPassword = await bcrypt.compare(password, user.password);
 
-  console.log("Password comparison result:", validPassword); // Debug log
 
   if (!validPassword) {
-    console.log("Invalid credentials"); // Debug log
     return res.status(401).json({ error: "Invalid credentials" });
   }
 
-  console.log("Valid credentials"); // Debug log
 
   const payload = { userId: user.id };
   const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "15m" });
@@ -183,13 +174,9 @@ app.post("/reservations", requireAuth, async (req, res) => {
       }
     });
 
-    console.log('Reservation created:', reservation);
     res.json(reservation);
   } catch (error) {
-    console.error('Reservation creation error:', {
-      message: error.message,
-      code: error.code
-    });
+
     res.status(500).json({ error: "Failed to create reservation" });
   }
 });

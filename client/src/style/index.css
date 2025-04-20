@@ -485,7 +485,22 @@ button:hover {
   padding: 1rem;
 }
 
+.map-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-container {
+    max-width: 100%;
+    margin: 1rem;
+  }
+}
 
 /* ------------ Footer.js ------------ */
 footer {
@@ -598,8 +613,6 @@ footer h1 {
   border: none;
   cursor: pointer;
   width: fit-content;
-  min-width: 200px; /* Set a minimum width */
-  max-width: 200px; /* Set a maximum width */
   margin: 0 auto; /* Add this to ensure button itself is centered */
 }
 
@@ -705,7 +718,7 @@ select:disabled {
 }
 
 .delete-button:hover {
-  background-color: #FF8080;
+  background-color: #FF7070;
 }
 
 .modal-overlay {
@@ -745,12 +758,20 @@ select:disabled {
   cursor: pointer;
 }
 
+.save-button:hover {
+  background-color: #45a049;
+}
+
 .cancel-button {
-  background-color: #f44336;
+  background-color:  #FF8080 ;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #FF7070;
 }
 
 
@@ -819,6 +840,7 @@ select:disabled {
   font-size: 1rem;
 }
 
+/* Login button */
 .auth-form .submit-button {
   background-color: #F4CE14;
   padding: 0.75rem 1.5rem;
@@ -828,14 +850,12 @@ select:disabled {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
-  min-width: 200px; /* Ensures consistent button width */
+  min-width: 170px;
 }
 
 .auth-form .submit-button:hover {
   background-color: #E1BD13;
 }
-
-
 
 .register-link {
   color: #495E57;

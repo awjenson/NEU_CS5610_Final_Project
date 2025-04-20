@@ -8,14 +8,12 @@ describe('Constants Import', () => {
     expect(AVAILABLE_TIMES).toBeDefined();
     expect(Array.isArray(AVAILABLE_TIMES)).toBe(true);
     expect(AVAILABLE_TIMES.length).toBeGreaterThan(0);
-    console.log('AVAILABLE_TIMES:', AVAILABLE_TIMES);
   });
 
   test('OCCASIONS is imported correctly', () => {
     expect(OCCASIONS).toBeDefined();
     expect(Array.isArray(OCCASIONS)).toBe(true);
     expect(OCCASIONS.length).toBeGreaterThan(0);
-    console.log('OCCASIONS:', OCCASIONS);
   });
 });
 

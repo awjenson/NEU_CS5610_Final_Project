@@ -19,14 +19,6 @@ export default function ReservationsForm({ availableTimes, dispatch, onSubmit, e
           const isPartySizeValid = partySize >= 1 && partySize <= 10;
           const isOccasionValid = occasion !== '';
 
-          console.log('Validation results:', {
-              isDateValid,
-              isTimeValid,
-              isPartySizeValid,
-              isOccasionValid,
-              finalValidity: isDateValid && isTimeValid && isPartySizeValid && isOccasionValid
-          });
-
           setIsFormValid(isDateValid && isTimeValid && isPartySizeValid && isOccasionValid);
       };
 
@@ -81,7 +73,6 @@ const handlePartySizeChange = (e) => {
 };
 
 
-
 const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -99,9 +90,7 @@ const handleSubmit = async (e) => {
       partySize: parseInt(partySize),
       occasion: occasion || undefined
     };
-  
-    console.log('Submitting reservation data:', formData); // Add this log
-  
+    
     try {
       await onSubmit(formData);
       // Reset form after successful submission
@@ -110,12 +99,9 @@ const handleSubmit = async (e) => {
       setPartySize(1);
       setOccasion('');
     } catch (error) {
-      console.error('Error submitting reservation:', error);
       setError('Failed to submit reservation. Please try again.');
     }
   };
-
-
 
 
   return (

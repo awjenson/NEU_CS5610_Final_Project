@@ -3,7 +3,6 @@ import { useAuthUser } from "../security/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
 
-
 export default function Login() {
 
     const [username, setUsername] = useState("");
@@ -19,12 +18,10 @@ export default function Login() {
       setIsLoading(true); // Add loading state
     
       try {
-        console.log("Attempting login with username:", username); // Debug log
         await login(username, password);
         // Only navigate if login was successful
         navigate("/profile");
       } catch (error) {
-        console.error("Login error:", error);
         setError("Invalid username or password. Please try again.");
       } finally {
         setIsLoading(false); // Reset loading state

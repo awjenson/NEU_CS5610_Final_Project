@@ -6,7 +6,6 @@ const formatDate = (dateString) => {
       const date = new Date(dateString);
       
       if (isNaN(date.getTime())) {
-        console.error('Invalid date:', dateString);
         return 'Invalid date';
       }
       
@@ -18,7 +17,6 @@ const formatDate = (dateString) => {
         timeZone: 'America/Chicago'  // Keep this to ensure Chicago timezone
       });
     } catch (error) {
-      console.error('Error formatting date:', error);
       return 'Error formatting date';
     }
   };
@@ -46,10 +44,6 @@ export default function ReservationsList({ reservations, onUpdate, onDelete, occ
         setEditingReservation(null);
     };
     
-  
-    // Debug logs
-  console.log('Current user:', user);
-  console.log('Reservations:', reservations);
 
   if (!reservations.length) {
     return <p>No reservations found.</p>;
