@@ -141,6 +141,12 @@ All endpoints return appropriate HTTP status codes:
 
 Error responses include a message field with details about the error.
 
+### Accessibility Reports (`/accessibility_reports`)
+The Accessibility Reports directory contains 3 Lighthouse Reports:
+- "about page.pdf"
+- "home page.pdf"
+- "login page.pdf"
+
 ### CRUD Operations
 
 #### User Management
@@ -200,7 +206,7 @@ The application prioritizes accessibility through:
 - Keyboard navigation support
 - Screen reader compatibility
 - Color contrast compliance
-- Accessibility Reports (`/accessibility_reports`) contains 3 Lighthouse Reports (i.e., PDFs for the About, Home, and Login pages)
+- Accessibility Reports directory (`/accessibility_reports`) contains 3 Lighthouse Reports
 
 ### Component Architecture
 Components are designed with:
