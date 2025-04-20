@@ -1,10 +1,15 @@
 import React from 'react';
+import OrderOnline from './OrderOnline';
 
 export default function OrderOnlinePage() {
     return (
-        <div className="order-online-page">
-            <h1>Order Online Page</h1>
-            <h2>This feature is expected to be launched in 2026. Stay tuned!</h2>
-      </div>
+        <main className="order-online-page">
+            <header>
+                <h1>Order Online</h1>
+            </header>
+            <section>
+                <OrderOnline />
+            </section>
+        </main>
     );
 };

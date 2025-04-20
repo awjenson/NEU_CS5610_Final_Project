@@ -6,16 +6,16 @@ import ReservationsList from './ReservationsList';
 // Define times once to avoid duplication
 // The 'Constants' file is an anti-pattern. Placement by functionality, not technical concerns
   // https://www.hacklewayne.com/the-constants-file-is-an-anti-pattern-so-is-the-interface-folder-placement-by-functionality-not-technical-concerns
-const AVAILABLE_TIMES = [
+export const AVAILABLE_TIMES = [
+    '16:00',
     '17:00',
     '18:00',
     '19:00',
     '20:00',
-    '21:00',
-    '22:00'
+    '21:00'
 ];
 
-const OCCASIONS = [
+export const OCCASIONS = [
     'Normal',
     'Birthday',
     'Anniversary',
@@ -61,11 +61,12 @@ export default function ReservationsPage() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="reservations-page">
+    <main className="reservations-page">
+
       <h1>Reservations</h1>
       
       <section className="new-reservation">
-        <h2>Make a New Reservation</h2>
+        <h2>Book a Reservation</h2>
         <ReservationsForm 
           availableTimes={availableTimes}
           dispatch={dispatch}
@@ -86,6 +87,7 @@ export default function ReservationsPage() {
             occasions={OCCASIONS}
         />
       </section>
-    </div>
+
+    </main>
   );
 };

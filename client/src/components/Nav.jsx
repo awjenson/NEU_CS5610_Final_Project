@@ -8,17 +8,18 @@ export default function Nav() {
     const { isAuthenticated } = useAuthUser();
 
     return (
-        <header id="nav">
+      <header id="nav">
         <nav className="nav-container">
-          <div className="nav-logo">
+          <header className="nav-logo">
             <img src={logo} alt="Little Lemon Logo" />
-          </div>
+          </header>
           <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/menu">Menu</Link></li>
             <li><Link to="/reservations">Reservations</Link></li>
             <li><Link to="/order-online">Order Online</Link></li>
+            {/* Conditional rendering for authenticated users */}
             {isAuthenticated ? (
             <li><Link to="/profile">Profile</Link></li>
           ) : (

@@ -8,7 +8,7 @@ import AboutPage from "../components/AboutPage";
 import MenuPage from "../components/MenuPage";
 import ReservationsPage from "./ReservationsPage";
 import OrderOnlinePage from "../components/OrderOnlinePage";
-import Profile from '../components/Profile';
+import ProfilePage from '../components/ProfilePage';
 
 import { AuthProvider } from "../security/AuthContext";
 import RequireAuth from "../security/RequireAuth";
@@ -20,7 +20,10 @@ export default function App() {
         <BrowserRouter>
 
         <Routes>
+
+          {/* App Layout is the parent component that contains the Nav and Footer components */}
           <Route element={<AppLayout />}>
+
             {/* Public Routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -34,7 +37,7 @@ export default function App() {
               path="/profile"
               element={
                 <RequireAuth>
-                  <Profile />
+                  <ProfilePage />
                 </RequireAuth>
               }
             />
@@ -49,7 +52,9 @@ export default function App() {
 
             {/* 404 Route */}
             <Route path="*" element={<NotFoundPage />} />
+
           </Route>
+
         </Routes>
 
         </BrowserRouter>

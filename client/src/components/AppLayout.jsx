@@ -8,26 +8,26 @@ export default function AppLayout() {
   const navigate = useNavigate();
 
   return (
-    <div className="grid-container">
+    <main className="grid-container">
 
       {/* Navigation */}
-      <div className="grid-item-nav">
+      <section className="grid-item-nav">
           <Nav />
-      </div>
+      </section>
 
-      {/* Main Content */}
-      <main className="grid-item-main">
+      {/* Body Content */}
+      <section className="grid-item-body">
 
           {/* The <Outlet> renders the current route selected */}
           <Outlet />
 
-      </main>
+      </section>
 
       {/* Footer */}
-      <div className="grid-item-footer">
+      <section className="grid-item-footer">
           <Footer />
-      </div>
+      </section>
 
-    </div>
+    </main>
   );
 }

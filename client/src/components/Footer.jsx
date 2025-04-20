@@ -5,13 +5,15 @@ import logo from '../images/logo-tall-green.png';
 export default function Footer() {
   return (
     <footer id="footer">
-      <div className="footer-content">
-        <div className="footer-logo">
+
+      <main className="footer-content">
+
+        <header className="footer-logo">
           <img src={logo} alt="Little Lemon Logo" />
-        </div>
-        <div className="footer-nav">
-          <h4>Doormat Navigation</h4>
-          <ul>
+        </header>
+        <section className="footer-nav">
+          <h1>Navigation</h1>
+          <ul className="footer-nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/menu">Menu</Link></li>
@@ -19,23 +21,24 @@ export default function Footer() {
             <li><Link to="/order-online">Order Online</Link></li>
             <li><Link to="/login">Login</Link></li>
           </ul>
-        </div>
+        </section>
         <address className="footer-contact">
-          <h4>Contact Us</h4>
-          <p>123 Main Street, Chicago, IL 60601</p>
+          <h1>Contact Us</h1>
+          <p>123 W Illinois St, Chicago, IL 60654</p>
           <p>(123) 456-7890</p>
           <p>info@littlelemon.com</p>
         </address>
-        <div className="footer-social">
-          <h4>Follow Us</h4>
-          <ul>
-            <li><a href="https://www.facebook.com">Facebook</a></li>
-            <li><a href="https://www.instagram.com">Instagram</a></li>
-            <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+        <section className="footer-social">
+          <h1>Follow Us</h1>
+          <ul className="footer-social-links">
+            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
-        </div>
-      </div>
-      <p>&copy; 2025 Little Lemon. All rights reserved.</p>
+        </section>
+       
+      </main>
+
     </footer>
   );
 }

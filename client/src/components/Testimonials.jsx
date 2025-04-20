@@ -35,17 +35,17 @@ function Testimonials() {
 
     return (
       <section id="testimonials">
-        <h3>Testimonials</h3>
-        <div className="reviews-container">
+        <h2>Testimonials</h2>
+        <article className="reviews-container">
           {reviews.map((review, index) => (
             <div key={index} className="review-item">
               <img src={review.photo} alt={`${review.name}'s photo`} className="review-photo" />
-              <h5>{review.name}</h5>
+              <h3>{review.name}</h3>
               <p>Rating: {review.rating} / 5</p>
               <p>{review.comment}</p>
             </div>
           ))}
-        </div>
+        </article>
       </section>
     );
   }

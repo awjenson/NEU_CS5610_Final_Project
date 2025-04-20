@@ -8,26 +8,31 @@ function Hero() {
 
   return (
     <section id="hero">
-      <div className="hero-container">
+      <article className="hero-container">
 
-        <div className="hero-left">
-
+        <section className="hero-left">
+          <header>
             <h1>Little Lemon</h1>
-            <h3>Chicago</h3>
+            <h2>Chicago</h2>
+          </header>
+
             <p>
               We are a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
             </p>
-            <button onClick={() => navigate('/reservations')}>
+            <button
+                aria-label="Reserve a Table"
+                onClick={() => navigate('/reservations')}
+            >
               Reserve a Table
             </button>
 
-        </div>
+        </section>
 
-        <div className="hero-right">
+        <section className="hero-right">
           <img src={heroImage} alt="Little Lemon Restaurant" />
-        </div>
+        </section>
 
-      </div>
+      </article>
     </section>
   );
 }

@@ -6,25 +6,44 @@ export default function About() {
   return (
     <section id="about">
 
-      <div className="about-container">
+      <header>
+        <h2>Our Story</h2>
+      </header>
 
-        <div className="about-left">
+      {/* First article: About content */}
+      <article className="about-container">
 
-            <h1>Little Lemon</h1>
-            <h3>Chicago</h3>
-            <p>
-            Little Lemon is a family-owned Mediterranean restaurant located in the heart of Chicago. We are dedicated to providing our customers with the best dining experience, offering a variety of traditional Mediterranean dishes with a modern twist. Our cozy atmosphere and friendly staff make Little Lemon the perfect place to enjoy a meal with family and friends.
-            </p>
 
-        </div>
+        <section className="about-left">
+          <p>
+                Little Lemon is a charming family-owned Mediterranean restaurant nestled in the heart of Chicago. 
+                Established with love and passion for authentic Mediterranean cuisine in 2005, our restaurant has become 
+                a beloved neighborhood gem. We take pride in serving traditional recipes passed down through 
+                generations, each dish crafted with the freshest ingredients and attention to detail. Our warm, 
+                inviting atmosphere makes every guest feel like part of our extended family, creating the perfect 
+                setting for memorable dining experiences.
+              </p>
+              <p>
+                At the helm of our kitchen are our talented chefs, Mario and Adrian. With their combined expertise 
+                in Mediterranean cuisine, they bring innovation and tradition together in perfect harmony. Mario, 
+                with his classical culinary training, and Adrian, with his modern creative flair, work side by side 
+                to create dishes that honor traditional recipes while adding contemporary twists. Their collaboration 
+                has made Little Lemon a standout destination for both authentic and innovative Mediterranean dining 
+                in Chicago.
+              </p>
+              
+          </section>
 
-        <div className="about-right">
-          <img src={aboutImage1} alt="Interior of Little Lemon restaurant" className="about-image1" />
-          <img src={aboutImage2} alt="Delicious Mediterranean dish" className="about-image2" />
-        </div>
+          <section className="about-right">
+            <img src={aboutImage1} alt="Chefs Mario and Adrian talking" className="about-image1" />
+            <img src={aboutImage2} alt="Chefs Mario and Adrian smiling" className="about-image2" />
+          </section>
 
-      </div>
+      </article>
 
     </section>
+
+
   );
-}
+};
+

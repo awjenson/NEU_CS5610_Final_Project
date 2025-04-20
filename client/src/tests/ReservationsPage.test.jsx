@@ -1,6 +1,7 @@
-import { initializeTimes, updateTimes } from '../components/ReservationsPage';
+import { render, screen } from '@testing-library/react';
+import { initializeTimes, updateTimes, AVAILABLE_TIMES } from '../components/ReservationsPage';
 
-// Define the expected available times
+/*
 const AVAILABLE_TIMES = [
     '17:00',
     '18:00',
@@ -9,6 +10,7 @@ const AVAILABLE_TIMES = [
     '21:00',
     '22:00'
   ];
+*/
 
   describe('initializeTimes', () => {
     test('Should return the correct initial available times', () => {

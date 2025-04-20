@@ -8,62 +8,86 @@ async function main() {
   // Add menu items
   const menuItems = [
     {
-      name: 'Greek Salad',
-      description: 'The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.',
-      price: 12.99,
-      image: '/images/greek-salad.jpg',
-      category: 'Starters'
+        id: 1,
+        name: "Greek Salad",
+        description: "Fresh Mediterranean salad with cherry tomatoes, cucumber, red onion, olives, and feta cheese drizzled with olive oil.",
+        price: 10.99,
+        category: "Starters",
+        image: "/greek-salad.jpg"
     },
     {
-      name: 'Bruschetta',
-      description: 'Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
-      price: 7.99,
-      image: '/images/bruschetta.jpg',
-      category: 'Starters'
+        id: 2,
+        name: "Bruschetta",
+        description: "Grilled bread rubbed with garlic and topped with diced tomatoes, fresh basil, and extra virgin olive oil.",
+        price: 8.99,
+        category: "Starters",
+        image: "/bruschetta.jpg"
     },
     {
-      name: 'Lemon Dessert',
-      description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
-      price: 8.99,
-      image: '/images/lemon-dessert.jpg',
-      category: 'Desserts'
+        id: 3,
+        name: "Lemon Herb Chicken",
+        description: "Grilled chicken breast marinated in Mediterranean herbs and lemon, served with roasted vegetables.",
+        price: 18.99,
+        category: "Main Courses",
+        image: "/lemon-chicken.jpg"
     },
     {
-      name: 'Grilled Fish',
-      description: 'Fresh Mediterranean fish, grilled to perfection with olive oil, lemon, and herbs.',
-      price: 24.99,
-      image: '/images/grilled-fish.jpg',
-      category: 'Main Courses'
+        id: 4,
+        name: "Grilled Sea Bass",
+        description: "Fresh Mediterranean sea bass grilled to perfection with lemon, herbs, and olive oil.",
+        price: 22.99,
+        category: "Main Courses",
+        image: "/sea-bass.jpg"
     },
     {
-      name: 'Mediterranean Pasta',
-      description: 'Fresh pasta tossed with Mediterranean vegetables, olive oil, and fresh herbs.',
-      price: 18.99,
-      image: '/images/mediterranean-pasta.jpg',
-      category: 'Main Courses'
+        id: 5,
+        name: "Pasta Primavera",
+        description: "Fresh fettuccine tossed with seasonal vegetables in a light olive oil and herb sauce.",
+        price: 15.99,
+        category: "Main Courses",
+        image: "/pasta.jpg"
     },
     {
-      name: 'Hummus & Pita',
-      description: 'Smooth hummus served with warm pita bread and olive oil.',
-      price: 6.99,
-      image: '/images/hummus-pita.jpg',
-      category: 'Starters'
+        id: 6,
+        name: "Mediterranean Pizza",
+        description: "Thin crust pizza topped with olives, feta, sun-dried tomatoes, and fresh herbs.",
+        price: 14.99,
+        category: "Main Courses",
+        image: "/pizza.jpg"
     },
     {
-      name: 'Baklava',
-      description: 'Layers of flaky phyllo dough filled with chopped nuts and sweetened with syrup.',
-      price: 7.99,
-      image: '/images/baklava.jpg',
-      category: 'Desserts'
+        id: 7,
+        name: "Baklava",
+        description: "Traditional Mediterranean dessert made with layers of filo, honey, and chopped nuts.",
+        price: 4.99,
+        category: "Desserts",
+        image: "/baklava.jpg"
     },
     {
-      name: 'Mediterranean Pizza',
-      description: 'Thin crust pizza topped with Mediterranean vegetables, feta cheese, and fresh herbs.',
-      price: 16.99,
-      image: '/images/mediterranean-pizza.jpg',
-      category: 'Main Courses'
+        id: 8,
+        name: "Lemon cake",
+        description: "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
+        price: 5.99,
+        category: "Desserts",
+        image: "/lemon-cake.jpg"
+    },
+    {
+        id: 9,
+        name: "House Wine",
+        description: "Selection of red or white wine from local Mediterranean vineyards.",
+        price: 8.99,
+        category: "Drinks",
+        image: "/wine.jpg"
+    },
+    {
+        id: 10,
+        name: "Turkish Coffee",
+        description: "Traditional Turkish coffee served with Turkish delight.",
+        price: 4.99,
+        category: "Drinks",
+        image: "/coffee.jpg"
     }
-  ];
+];
 
   for (const item of menuItems) {
     await prisma.menuItem.create({

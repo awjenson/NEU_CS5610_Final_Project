@@ -14,22 +14,25 @@ import Footer from './Footer';
 
 export default function HomePage() {
     return (
-      <>
+      <main className="home-page">
 
-        <div className="grid-item-hero">
+        <section className="grid-item-hero">
             <Hero />
-        </div>
-        <div className="grid-item-highlights">
-            <Highlights />
-        </div>
-        <div className="grid-item-testimonials">
-            <Testimonials />
-        </div>
-        <div className="grid-item-about">
-            <About />
-        </div>
+        </section>
 
-      </>
+        <section className="grid-item-highlights">
+            <Highlights />
+        </section>
+
+        <section className="grid-item-testimonials">
+            <Testimonials />
+        </section>
+
+        <section className="grid-item-about">
+            <About />
+        </section>
+
+      </main>
     );
   }
 

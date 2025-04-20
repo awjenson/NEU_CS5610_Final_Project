@@ -1,38 +1,30 @@
 import React from 'react';
 import useMenuItems from '../hooks/useMenuItems';
+import Menu from '../components/Menu';
 
 export default function MenuPage() {
-  console.log('MenuPage component rendering'); // Debug log
+  const categories = ['Starters', 'Main Courses', 'Desserts', 'Drinks'];
+  const { menuItems, isLoading, error } = useMenuItems();
 
-  const { menuItems, loading, error } = useMenuItems();
-  
-  console.log('MenuPage state:', { menuItems, loading, error }); // Debug log
+
+  console.log('Loading:', isLoading);
+  console.log('Error:', error);
+  console.log('Menu Items:', menuItems);
+
+  if (isLoading) {
+    return <div>Loading menu items...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
-    <div className="menu-page">
+    <>
       <h1>Our Menu</h1>
-      
-      {loading && <div>Loading menu items...</div>}
-      
-      {error && (
-        <div className="error-message">
-          Error loading menu items: {error}
-        </div>
-      )}
-
-      {!loading && !error && (
-        <div className="menu-items">
-          {menuItems.map(item => (
-            <div key={item.id} className="menu-item">
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-              <p className="price">
-                ${Number(item.price).toFixed(2)}
-              </p>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+      <main className="menu-page">
+        <Menu categories={categories} menuItems={menuItems} />
+      </main>
+    </>
   );
-}
+} 

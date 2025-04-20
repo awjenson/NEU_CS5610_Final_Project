@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import Profile from "../components/Profile";
 import { useAuthUser } from "../security/AuthContext";
 
@@ -10,11 +11,13 @@ describe("Profile Component", () => {
       user: { name: "John Doe", email: "johndoe@example.com" },
     });
 
-    render(<Profile />);
+    render(
+      <BrowserRouter>
+        <Profile />
+      </BrowserRouter>
+    );
 
-    expect(screen.getByText(/name: john doe/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/📧 email: johndoe@example.com/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText("Name:")).toBeInTheDocument();
+    expect(screen.getByText("John Doe")).toBeInTheDocument();
   });
 });

@@ -89,12 +89,15 @@ export default function ReservationsList({ reservations, onUpdate, onDelete, occ
 
         {user && user.id === reservation.userId && (
           <div className="card-actions">
+
             <button 
               onClick={() => handleUpdateClick(reservation)}
               className="update-button"
+              aria-label="Update Reservation"
             >
               Update
             </button>
+
             <button 
               onClick={() => {
                 if (window.confirm('Are you sure you want to cancel this reservation?')) {
@@ -102,9 +105,11 @@ export default function ReservationsList({ reservations, onUpdate, onDelete, occ
                 }
               }}
               className="delete-button"
+              aria-label="Delete Reservation"
             >
               Delete
             </button>
+
             </div>
           )}
         </div>
@@ -150,11 +155,20 @@ export default function ReservationsList({ reservations, onUpdate, onDelete, occ
               </div>
 
               <div className="modal-actions">
-                <button type="submit" className="save-button">Save Changes</button>
+
+                <button
+                type="submit"
+                className="save-button"
+                aria-label="Save Changes"
+                >
+                  Save Changes
+                </button>
+
                 <button 
                   type="button" 
                   className="cancel-button"
                   onClick={() => setEditingReservation(null)}
+                  aria-label="Cancel"
                 >
                   Cancel
                 </button>
